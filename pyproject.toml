@@ -24,6 +24,7 @@ dependencies = [
 
 # Enables the usage of setuptools_scm
 [tool.setuptools_scm]
+local_scheme = 'no-local-version'
 
 [project.optional-dependencies]
 lint = [
