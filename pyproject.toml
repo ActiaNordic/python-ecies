@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "python-ecies"
 description="ECIES implementation for Python on top of the cryptography library"
 authors = [{ name = "Marten Svanfeldt", email = "marten.svanfeldt@actia.se" }]
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 dynamic = ["version"]
 readme = "README.rst"
 license = { file = "LICENSE.txt" }
