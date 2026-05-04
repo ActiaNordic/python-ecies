@@ -3,8 +3,6 @@
 
 """This module contains key derivation functions."""
 
-from typing import Optional
-
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf import concatkdf, hkdf, x963kdf
 from typing_extensions import override
@@ -19,9 +17,9 @@ class HKDF(KeyDerivationOperation):
 
     def __init__(
         self,
-        hash_algo: Optional[hashes.HashAlgorithm] = None,
-        salt: Optional[bytes] = None,
-        info: Optional[bytes] = None,
+        hash_algo: hashes.HashAlgorithm | None = None,
+        salt: bytes | None = None,
+        info: bytes | None = None,
     ) -> None:
         """Initialize a new HKDF key derivation object.
 
@@ -52,8 +50,8 @@ class X963KDF(KeyDerivationOperation):
 
     def __init__(
         self,
-        hash_algo: Optional[hashes.HashAlgorithm] = None,
-        info: Optional[bytes] = None,
+        hash_algo: hashes.HashAlgorithm | None = None,
+        info: bytes | None = None,
     ) -> None:
         """Initialize a new X9.63-KDF key derivation object.
 
@@ -82,8 +80,8 @@ class ConcatKDF(KeyDerivationOperation):
 
     def __init__(
         self,
-        hash_algo: Optional[hashes.HashAlgorithm] = None,
-        info: Optional[bytes] = None,
+        hash_algo: hashes.HashAlgorithm | None = None,
+        info: bytes | None = None,
     ) -> None:
         """Initialize a new NIST SP 800-56Ar3 ConcatKDF key derivation object.
 

@@ -5,7 +5,6 @@ import os
 import subprocess
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from typing import Optional
 
 import jinja2
 
@@ -36,7 +35,7 @@ if __name__ == "__main__":
         )
 
         with licenses_file.open(encoding="utf-8") as handle:
-            licenses: list[dict[str, Optional[str]]] = json.load(fp=handle)
+            licenses: list[dict[str, str | None]] = json.load(fp=handle)
 
             for license_ in licenses:
                 for key in ["LicenseFile", "NoticeFile"]:

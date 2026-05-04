@@ -3,8 +3,6 @@
 
 """The main ECIES encryption/decryption operation."""
 
-from typing import Optional
-
 from cryptography.hazmat.primitives.asymmetric import ec
 
 from .common import (
@@ -58,7 +56,7 @@ class ECIES:
         key_deriver: KeyDerivationOperation,
         encrypter: SymmetricEncrypterAndAuthenticator,
         output_format: OutputFormat,
-        ecdh: Optional[ECDHOperation] = None,
+        ecdh: ECDHOperation | None = None,
     ) -> None:
         """Initialize a new ECIES object.
 
