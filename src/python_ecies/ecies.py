@@ -70,7 +70,7 @@ class ECIES:
         self.kd_oper = key_deriver
         self.encrypter = encrypter
         self.output_format = output_format
-        self.ecdh_oper = ecdh if ecdh else _default_ecdh
+        self.ecdh_oper = ecdh or _default_ecdh
 
     def encrypt(self, data: bytes, public_key: ec.EllipticCurvePublicKey) -> bytes:
         """Perform ECIES encryption based on the configuration of the ECIES object."""
