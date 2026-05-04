@@ -12,7 +12,8 @@ build:
     python: "3.10"
   jobs:
     pre_build:
-      - sphinx-apidoc -f --no-toc -o docs/ src/python_ecies
+      - uv run sphinx-apidoc -f --no-toc -o docs/ src/python_ecies
+      - uv run python docs/_scripts/generate_license_information.py
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
@@ -20,7 +21,7 @@ sphinx:
 
 python:
   install:
-    - method: pip
-      path: .
-      extra_requirements:
+    - method: uv
+      command: sync
+      extras:
         - doc

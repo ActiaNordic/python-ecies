@@ -2,6 +2,10 @@ default:
   image: python:3.10-bookworm
   tags:
     - linux_docker
+  before_script:
+    - curl -LsSf https://astral.sh/uv/0.5.11/install.sh | sh
+    - export PATH="$HOME/.local/bin:$PATH"
+    - export PATH="$(uv tool dir --bin):$PATH"
 
 workflow:
   rules:
@@ -12,19 +16,18 @@ workflow:
 test:
   stage: test
   script:
-    - pip install -U .[dev]
-    - tox run -f test
+    - uv python install 3.10 3.11 3.12 3.13
+    - uvx --from 'tox==4.21.*' --with 'tox-uv==1.16.*' tox run -f test
   rules:
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
 
 pages:
   stage: deploy
   script:
-    - pip install -U .[dev]
-    - tox run -e docs
+    - uvx --from 'tox==4.21.*' --with 'tox-uv==1.16.*' tox run -e docs
     - mkdir -p public && cp -a docs/build/html/* public
   artifacts:
     paths:
-    - public
+      - public
   rules:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
