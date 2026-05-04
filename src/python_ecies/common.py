@@ -4,8 +4,9 @@
 """Common type definitions and base classes."""
 
 import abc
+from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any, Callable, Protocol
+from typing import Any, Protocol
 
 from cryptography.hazmat.primitives.asymmetric import ec
 
