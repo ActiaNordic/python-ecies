@@ -9,9 +9,11 @@ authors = [{ name = "Marten Svanfeldt", email = "marten.svanfeldt@actia.se" }]
 requires-python = ">=3.10"
 dynamic = ["version"]
 readme = "README.rst"
-license = { file = "LICENSE.txt" }
+license = "MIT"
+license-files = [
+    "LICENSE.txt",
+]
 classifiers = [
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
