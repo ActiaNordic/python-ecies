@@ -3,8 +3,8 @@
 
 """Helper module for interfacing the library with YubiHSM."""
 
-import yubihsm  # type: ignore[import-not-found]
-import yubihsm.objects  # type: ignore[import-not-found]
+import yubihsm
+import yubihsm.objects
 from cryptography.hazmat.primitives.asymmetric import ec
 from typing_extensions import override
 

@@ -115,6 +115,10 @@ exclude = [
     "dist/",
 ]
 
+[[tool.mypy.overrides]]
+module = ["yubihsm", "yubihsm.*"]
+ignore_missing_imports = true
+
 [tool.pytest.ini_options]
 addopts = """
     --import-mode=append
