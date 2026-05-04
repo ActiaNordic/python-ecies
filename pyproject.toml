@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "python-ecies"
 description="ECIES implementation for Python on top of the cryptography library"
 authors = [{ name = "Marten Svanfeldt", email = "marten.svanfeldt@actia.se" }]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dynamic = ["version"]
 readme = "README.rst"
 license = { file = "LICENSE.txt" }
@@ -14,6 +14,10 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
     "importlib-metadata",
@@ -48,16 +52,12 @@ doc = [
     "pip-licenses==4.3.2",
     "jinja2==3.1.2",
 ]
-build = [
-    "build[virtualenv]==1.0.3",
-    "twine==5.0",
-]
 dev = [
-    "tox==4.11.1",
+    "tox>=4.21",
+    "tox-uv>=1.16",
     "python-ecies[lint]",
     "python-ecies[test]",
     "python-ecies[doc]",
-    "python-ecies[build]",
 ]
 yubihsm = [
     "yubihsm[usb, http]==3.0"
@@ -69,7 +69,7 @@ src = ["src"]
 extend-exclude = [
     "conf.py",
 ]
-target-version = "py39"
+target-version = "py310"
 lint.select = ["ALL"]
 lint.ignore = [
     "COM812",   # Conflicts with the formatter
