@@ -71,3 +71,11 @@ class YubiPrivateKey(ec.EllipticCurvePrivateKey):
     ) -> bytes:
         msg = "Not allowed!"
         raise NotImplementedError(msg)
+
+    @override
+    def __copy__(self) -> "YubiPrivateKey":
+        return YubiPrivateKey(self._yubi_priv_key)
+
+    @override
+    def __deepcopy__(self, memo: dict) -> "YubiPrivateKey":
+        return YubiPrivateKey(self._yubi_priv_key)
