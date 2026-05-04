@@ -76,7 +76,7 @@ class AESGCMEncrypter(SymmetricEncrypterAndAuthenticator):
     @override
     @property
     def identity(self) -> str:
-        return f"aesgcm({self._key_length*8},{self._nonce_length*8})"
+        return f"aesgcm({self._key_length * 8},{self._nonce_length * 8})"
 
 
 class ChaCha20Poly1305Encrypter(SymmetricEncrypterAndAuthenticator):
@@ -238,7 +238,7 @@ class CipherHMACEncryptor(SymmetricEncrypterAndAuthenticator):
     def identity(self) -> str:
         return (
             f"cipher({self._cipher_algo.name}-{self._cipher_mode.name}"
-            f"({self._cipher_key_length*8}),{self._hmac_algorithm.name})"
+            f"({self._cipher_key_length * 8}),{self._hmac_algorithm.name})"
         )
 
 

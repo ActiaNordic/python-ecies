@@ -6,7 +6,7 @@
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.ciphers import algorithms, modes
 
-from . import format, key_derivation, symmetric
+from . import format, key_derivation, symmetric  # noqa: A004  `format` is a module name in this package
 from .ecies import ECIES
 
 

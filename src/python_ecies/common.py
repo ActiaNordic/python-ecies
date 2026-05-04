@@ -11,11 +11,11 @@ from typing import Any, Protocol
 from cryptography.hazmat.primitives.asymmetric import ec
 
 __all__ = [
-    "EncryptionResult",
     "ECDHOperation",
+    "EncryptionResult",
     "KeyDerivationOperation",
-    "SymmetricEncrypterAndAuthenticator",
     "OutputFormat",
+    "SymmetricEncrypterAndAuthenticator",
 ]
 
 

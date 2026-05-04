@@ -29,7 +29,7 @@ class HKDF(KeyDerivationOperation):
             salt: Extra salt to use when computing the derived key
             info: Extra info to feed into the HKDF
         """
-        self._hash_algo = hash_algo if hash_algo else hashes.SHA256()
+        self._hash_algo = hash_algo or hashes.SHA256()
         self._salt = salt
         self._info = info
 
@@ -60,7 +60,7 @@ class X963KDF(KeyDerivationOperation):
                        SHA256 will be used.
             info: Extra info to feed into the X9.63 KDF
         """
-        self._hash_algo = hash_algo if hash_algo else hashes.SHA256()
+        self._hash_algo = hash_algo or hashes.SHA256()
         self._info = info
 
     @override
@@ -90,7 +90,7 @@ class ConcatKDF(KeyDerivationOperation):
                        SHA256 will be used.
             info: Extra info to feed into the X9.63 KDF
         """
-        self._hash_algo = hash_algo if hash_algo else hashes.SHA256()
+        self._hash_algo = hash_algo or hashes.SHA256()
         self._info = info
 
     @override

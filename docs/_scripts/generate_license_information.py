@@ -16,8 +16,8 @@ if __name__ == "__main__":
         tmp_path = Path(tmp_dir)
         licenses_file = tmp_path / "ossLicenses.json"
 
-        subprocess.check_call(
-            [  # noqa: S603,S607  Trusted command
+        subprocess.check_call(  # noqa: S603  Trusted command
+            [  # noqa: S607  Trusted command
                 "pip-licenses",
                 "--with-authors",
                 "--with-system",
