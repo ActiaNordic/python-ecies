@@ -48,7 +48,7 @@ class YubiPrivateKey(ec.EllipticCurvePrivateKey):
     @override
     def sign(
         self,
-        data: bytes,
+        data: bytes | bytearray | memoryview[int],
         signature_algorithm: ec.EllipticCurveSignatureAlgorithm,
     ) -> bytes:
         if not isinstance(signature_algorithm, ec.ECDSA):
